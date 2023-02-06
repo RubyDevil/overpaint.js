@@ -19,4 +19,3 @@ Colorize.js supports the standard **8 colors** *(black, red, green, yellow, blue
 |pink|bg_pink|light_pink|light_bg_pink|
 |cyan|bg_cyan|light_cyan|light_bg_cyan|
 |white|bg_white|light_white|light_bg_white|
-|||||
