@@ -10,7 +10,7 @@ Colorize.js supports the standard **8 colors** *(black, red, green, yellow, blue
 ## Colors
 
 |Text|Background|Light Text|Light Background|
-|-|--|--|--|--|-|
+|--|--|--|--|--|
 |black|bg_black|light_black|light_bg_black|
 |red|bg_red|light_red|light_bg_red|
 |green|bg_green|light_green|light_bg_green|
