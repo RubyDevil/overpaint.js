@@ -42,24 +42,29 @@ for (const a in attributes) {
 	module.exports[a] = (x) => colorize(x, null, a)
 };
 
-// console.log(`(${Object.keys(colors).concat(Object.keys(attributes)).join('|')})((?:\.{1})(${Object.keys(attributes).join('|')}))?`)
 
 const console_log = console.log;
 console.log = function () {
 	var args = Array.from(arguments);
 	for (let i in args) {
 		if(typeof args[i] == 'string') { //  /(?:\#)([A-z]+)(?:\[)(.*?)(?:\](?!\$))/
-			let matches = args[i].match(/(?:\#)(black|red|green|yellow|blue|pink|cyan|white|bg_black|light_black|light_bg_black|bg_red|light_red|light_bg_red|bg_green|light_green|light_bg_green|bg_yellow|light_yellow|light_bg_yellow|bg_blue|light_blue|light_bg_blue|bg_pink|light_pink|light_bg_pink|bg_cyan|light_cyan|light_bg_cyan|bg_white|light_white|light_bg_white)(?:\.)?(bold|dim|italic|underline|blinking|overline|inverted|invisible|strikethrough|double_underline)?(?:\[)(.+?)(?:\](?!\$))/g);
+			let matches = args[i].match(/(?:\#)(black|red|green|yellow|blue|pink|cyan|white|bg_black|light_black|light_bg_black|bg_red|light_red|light_bg_red|bg_green|light_green|light_bg_green|bg_yellow|light_yellow|light_bg_yellow|bg_blue|light_blue|light_bg_blue|bg_pink|light_pink|light_bg_pink|bg_cyan|light_cyan|light_bg_cyan|bg_white|light_white|light_bg_white|bold|dim|italic|underline|blinking|overline|inverted|invisible|strikethrough|double_underline)(?:(?:\.)(black|red|green|yellow|blue|pink|cyan|white|bg_black|light_black|light_bg_black|bg_red|light_red|light_bg_red|bg_green|light_green|light_bg_green|bg_yellow|light_yellow|light_bg_yellow|bg_blue|light_blue|light_bg_blue|bg_pink|light_pink|light_bg_pink|bg_cyan|light_cyan|light_bg_cyan|bg_white|light_white|light_bg_white|bold|dim|italic|underline|blinking|overline|inverted|invisible|strikethrough|double_underline)){0,1}(?:\[)(.+?)(?:\](?!\$))/g);
 			if (matches && matches.length > 0) {
 				for (let j in matches) {
-					var groups = matches[j].match(/(?:\#)(black|red|green|yellow|blue|pink|cyan|white|bg_black|light_black|light_bg_black|bg_red|light_red|light_bg_red|bg_green|light_green|light_bg_green|bg_yellow|light_yellow|light_bg_yellow|bg_blue|light_blue|light_bg_blue|bg_pink|light_pink|light_bg_pink|bg_cyan|light_cyan|light_bg_cyan|bg_white|light_white|light_bg_white)(?:\.)?(bold|dim|italic|underline|blinking|overline|inverted|invisible|strikethrough|double_underline)?(?:\[)(.+?)(?:\](?!\$))/);
-					(groups[2] !== undefined && !Object.keys(attributes).includes(groups[2])) 
-						? args[i] = args[i].replace(groups[0], module.exports[groups[1]][groups[2].slice(1)](groups[3]))
-						: args[i] = args[i].replace(groups[0], module.exports[groups[1]](groups[3]));
+					var groups = matches[j].match(/(?:\#)(black|red|green|yellow|blue|pink|cyan|white|bg_black|light_black|light_bg_black|bg_red|light_red|light_bg_red|bg_green|light_green|light_bg_green|bg_yellow|light_yellow|light_bg_yellow|bg_blue|light_blue|light_bg_blue|bg_pink|light_pink|light_bg_pink|bg_cyan|light_cyan|light_bg_cyan|bg_white|light_white|light_bg_white|bold|dim|italic|underline|blinking|overline|inverted|invisible|strikethrough|double_underline)(?:(?:\.)(black|red|green|yellow|blue|pink|cyan|white|bg_black|light_black|light_bg_black|bg_red|light_red|light_bg_red|bg_green|light_green|light_bg_green|bg_yellow|light_yellow|light_bg_yellow|bg_blue|light_blue|light_bg_blue|bg_pink|light_pink|light_bg_pink|bg_cyan|light_cyan|light_bg_cyan|bg_white|light_white|light_bg_white|bold|dim|italic|underline|blinking|overline|inverted|invisible|strikethrough|double_underline)){0,1}(?:\[)(.+?)(?:\](?!\$))/);
+					if (groups[2] !== undefined) {
+						if (!Object.keys(colors).includes(groups[1])) 
+							console_log.apply(console, [module.exports.red.bold('[ERROR]: Must start with color :'), module.exports.green.bold('#color.style[text]')]);
+						else if (Object.keys(colors).includes(groups[2])) 
+							console_log.apply(console, [module.exports.red.bold('[ERROR]: Cannot mix colors :'), module.exports.green.bold('#color.style[text]')]);
+						else 
+							args[i] = args[i].replace(groups[0], module.exports[groups[1]][groups[2]](groups[3]));
+					} else {
+						args[i] = args[i].replace(groups[0], module.exports[groups[1]](groups[3]));
+					}
 				}
 			};
 			args[i] = args[i].replace(/\]\$/g, '\]');
-
 		}
 	};
 	console_log.apply(console, args);

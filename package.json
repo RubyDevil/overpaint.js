@@ -6,5 +6,5 @@
   "typings": "./colorize.d.ts",
   "keywords": ["colorize","color","colors","colored","colorized","paint","painted","chalk","chalk.js","terminal","console","shell"],
   "author": "ruby-devil",
-  "license": ""
+  "license": "CC BY-ND-4.0"
 }
