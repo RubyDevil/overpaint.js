@@ -4,10 +4,10 @@ const colors = {
 	green: 2,
 	yellow: 3,
 	blue: 4,
-	purple: 5,
+	pink: 5,
 	cyan: 6,
 	white: 7,
-}
+};
 
 const attributes = {
 	bold: 1,
@@ -20,49 +20,47 @@ const attributes = {
 	invisible: 8,
 	strikethrough: 9,
 	double_underline: 21,
-}
+};
 
 // const colorize = (x, c, a) => `[${(a)!=null?attributes[a]:'0'};${(c)!=null?colors[c]:'39'}m${x}[0;39m`
-const colorize = (x, c, a) => `\x1b[${(a)!=null?attributes[a]:'0'};${(c)!=null?colors[c]:'39'}m${x}\x1b[0;39m`
+const colorize = (x, c, a) => `\x1b[${(a)!=null?attributes[a]:'0'};${(c)!=null?colors[c]:'39'}m${x}\x1b[0;39m`;
 
 for (const c in colors) {
-	colors['bg_' + c] = String(40 + colors[c])
-	colors['light_' + c] = String(90 + colors[c])
-	colors['light_bg_' + c] = String(100 + colors[c])
-	colors[c] = String(30 + colors[c])
-}
+	colors['bg_' + c] = String(40 + colors[c]);
+	colors['light_' + c] = String(90 + colors[c]);
+	colors['light_bg_' + c] = String(100 + colors[c]);
+	colors[c] = String(30 + colors[c]);
+};
 
 for (const c in colors) {
-	module.exports[c] = (x) => colorize(x, c, null)
-	for (const a in attributes)
-		module.exports[c][a] = (x) => colorize(x, c, a)
-}
+	module.exports[c] = (x) => colorize(x, c, null);
+	for (const a in attributes) {
+		module.exports[c][a] = (x) => colorize(x, c, a);
+	}
+};
 for (const a in attributes) {
 	module.exports[a] = (x) => colorize(x, null, a)
-}
+};
 
-Object.keys(colors).forEach(style => console.log(`
-export declare const ${style}: {
-    (text:string): Black_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-`))
+// console.log(`(${Object.keys(colors).concat(Object.keys(attributes)).join('|')})((?:\.{1})(${Object.keys(attributes).join('|')}))?`)
+
+const console_log = console.log;
+console.log = function () {
+	var args = Array.from(arguments);
+	for (let i in args) {
+		if(typeof args[i] == 'string') { //  /(?:\#)([A-z]+)(?:\[)(.*?)(?:\](?!\$))/
+			let matches = args[i].match(/(?:\#)(black|red|green|yellow|blue|pink|cyan|white|bg_black|light_black|light_bg_black|bg_red|light_red|light_bg_red|bg_green|light_green|light_bg_green|bg_yellow|light_yellow|light_bg_yellow|bg_blue|light_blue|light_bg_blue|bg_pink|light_pink|light_bg_pink|bg_cyan|light_cyan|light_bg_cyan|bg_white|light_white|light_bg_white)(?:\.)?(bold|dim|italic|underline|blinking|overline|inverted|invisible|strikethrough|double_underline)?(?:\[)(.+?)(?:\](?!\$))/g);
+			if (matches && matches.length > 0) {
+				for (let j in matches) {
+					var groups = matches[j].match(/(?:\#)(black|red|green|yellow|blue|pink|cyan|white|bg_black|light_black|light_bg_black|bg_red|light_red|light_bg_red|bg_green|light_green|light_bg_green|bg_yellow|light_yellow|light_bg_yellow|bg_blue|light_blue|light_bg_blue|bg_pink|light_pink|light_bg_pink|bg_cyan|light_cyan|light_bg_cyan|bg_white|light_white|light_bg_white)(?:\.)?(bold|dim|italic|underline|blinking|overline|inverted|invisible|strikethrough|double_underline)?(?:\[)(.+?)(?:\](?!\$))/);
+					(groups[2] !== undefined && !Object.keys(attributes).includes(groups[2])) 
+						? args[i] = args[i].replace(groups[0], module.exports[groups[1]][groups[2].slice(1)](groups[3]))
+						: args[i] = args[i].replace(groups[0], module.exports[groups[1]](groups[3]));
+				}
+			};
+			args[i] = args[i].replace(/\]\$/g, '\]');
+
+		}
+	};
+	console_log.apply(console, args);
+};
