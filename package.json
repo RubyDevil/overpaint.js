@@ -1,11 +1,13 @@
 {
-  "name": "colorize-console",
+  "name": "overpaint",
   "version": "0.1.0",
   "description": "Bring your terminal to life with fiery colors, styles, and animations!",
   "main": "./index.js",
   "typings": "./index.d.ts",
   "keywords": [
     "ruby-devil",
+    "overpaint",
+    "overpaint.js",
     "pastel",
     "pastel.js",
     "color",
@@ -33,10 +35,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RubyDevil/pastel.js.git"
+    "url": "git+https://github.com/RubyDevil/overpaint.git"
   },
   "bugs": {
-    "url": "https://github.com/RubyDevil/pastel.js/issues"
+    "url": "https://github.com/RubyDevil/overpaint/issues"
   },
-  "homepage": "https://github.com/RubyDevil/pastel.js#readme"
+  "homepage": "https://github.com/RubyDevil/overpaint#readme"
 }

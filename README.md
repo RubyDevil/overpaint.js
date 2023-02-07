@@ -1,14 +1,17 @@
-# Pastel.js
 
-Pastel.js is a library to facilitate colorful terminal/console outputs for javascript programs.
-Pastel.js supports the standard **8 colors** *(black, red, green, yellow, blue, pink, cyan, white)*
-and **8 styles** *(bold, dim, italic, underline, strikethrough, overline, blinking, inverted, double_underline)*
+# overpaint.js
+
+overpaint.js is a library to facilitate colorful terminal/console outputs for javascript programs.
+overpaint.js supports the standard **8 colors**  *(black, red, green, yellow, blue, pink, cyan, white)*
+and **8 styles**  *(bold, dim, italic, underline, strikethrough, overline, blinking, inverted, double_underline)*
 [> See all Colors <](#colors) [> See all Styles<](#styles)
+
 ## Usage
 
-You can use the colored text feature directly in the native `console.log` **(Recommended)** : 
+You can use the colored text feature directly in the native `console.log`  **(Recommended)** :
+
 ```js
-const pastel = require('pastel.js');
+const overpaint = require('overpaint.js');
 
 // #color[text]
 console.log('This text is #yellow[Yellow].');
@@ -19,20 +22,22 @@ console.log('This text is #bold[Bold].');
 // #color.style[text]
 console.log('This text is #yellow.bold[Yellow & Bold].');
 ```
+
 **OR**
 
 You can use the module's built-in functions as following :
+
 ```js
-const pastel = require('pastel.js');
+const overpaint = require('pastel.js');
 
 // color('text')
-console.log(pastel.yellow('This text is yellow.'));
+console.log(overpaint.yellow('This text is yellow.'));
 
 // style('text')
-console.log(pastel.bold('This text is bold.'));
+console.log(overpaint.bold('This text is bold.'));
 
 // color.style('text')
-console.log(pastel.yellow.bold('This text is yellow & bold'));
+console.log(overpaint.yellow.bold('This text is yellow & bold'));
 ```
 
 ## Colors
@@ -51,7 +56,7 @@ console.log(pastel.yellow.bold('This text is yellow & bold'));
 ## Styles
 
 | Style              | Description                              | Supported |
-| :----------------: | ---------------------------------------- | :-------: |
+| ------------------ | ---------------------------------------- | --------- |
 | `dim`              | Reduces thr brightness                   | *Always*  |
 | `bold`             | Increases the font weight                | *Always*  |
 | `italic`           | Slightly inclines the text to the right  | *Always*  |
@@ -65,14 +70,16 @@ console.log(pastel.yellow.bold('This text is yellow & bold'));
 
 ## Typings
 
-Pastel.js is equipped with rich typings and autocompletion for editors like Visual Studio Code and many others
+overpaint.js is equipped with rich typings and autocompletion for editors like Visual Studio Code and many others
 
 ![Typings for the "blue" color](https://i.imgur.com/oOQ6QdE.png)
+
 ![Typings for the "italic" style](https://i.imgur.com/KYLrBwC.png)
+
 ![Styles for the "blue" color](https://i.imgur.com/PFXKXNx.png)
+
 ![Autocompletion](https://i.imgur.com/nTeFVY6.png)
 
-
 ```css
-"Published on my 18th birthday 🥳"
+"Published on my 18th birthday"🥳
 ```
