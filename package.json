@@ -1,5 +1,5 @@
 {
-  "name": "overpaint",
+  "name": "overpaint.js",
   "version": "0.1.0",
   "description": "Bring your terminal to life with fiery colors, styles, and animations!",
   "main": "./index.js",
@@ -35,10 +35,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RubyDevil/overpaint.git"
+    "url": "git+https://github.com/RubyDevil/overpaint.js.git"
   },
   "bugs": {
-    "url": "https://github.com/RubyDevil/overpaint/issues"
+    "url": "https://github.com/RubyDevil/overpaint.js/issues"
   },
-  "homepage": "https://github.com/RubyDevil/overpaint#readme"
+  "homepage": "https://github.com/RubyDevil/overpaint.js#readme"
 }
