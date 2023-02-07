@@ -2,8 +2,8 @@
   "name": "chalk-js",
   "version": "0.1.0",
   "description": "Bring your terminal to life with fiery colors, styles, and animations!",
-  "main": "./colorize.js",
-  "typings": "./colorize.d.ts",
+  "main": "./index.js",
+  "typings": "./index.d.ts",
   "keywords": [
     "colorize",
     "color",

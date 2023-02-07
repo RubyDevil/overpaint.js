@@ -1,14 +1,14 @@
-# colorize.js
+# Chalk-js
 
-Colorize.js is a library to facilitate colorful terminal/console outputs for javascript programs.
-Colorize.js supports the standard **8 colors** *(black, red, green, yellow, blue, pink, cyan, white)*
+Chalk-js is a library to facilitate colorful terminal/console outputs for javascript programs.
+Chalk-js supports the standard **8 colors** *(black, red, green, yellow, blue, pink, cyan, white)*
 and **8 styles** *(bold, dim, italic, underline, strikethrough, overline, blinking, inverted, double_underline)*
 [> See all Colors <](#colors) [> See all Styles<](#styles)
 ## Usage
 
 You can use the colored text feature directly in the native `console.log` **(Recommended)** : 
 ```js
-const colorize = require('colorize.js');
+const chalk = require('chalk-js');
 
 // #color[text]
 console.log('This text is #yellow[Yellow].');
@@ -23,16 +23,16 @@ console.log('This text is #yellow.bold[Yellow & Bold].');
 
 You can use the module's built-in functions as following :
 ```js
-const colorize = require('colorize.js');
+const chalk = require('chalk-js');
 
 // color('text')
-console.log(colorize.yellow('This text is yellow.'));
+console.log(chalk.yellow('This text is yellow.'));
 
 // style('text')
-console.log(colorize.bold('This text is bold.'));
+console.log(chalk.bold('This text is bold.'));
 
 // color.style('text')
-console.log(colorize.yellow.bold('This text is yellow & bold'));
+console.log(chalk.yellow.bold('This text is yellow & bold'));
 ```
 
 ## Colors
