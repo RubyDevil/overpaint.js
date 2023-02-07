@@ -1,7 +1,7 @@
-# Chalk-js
+# chalk-js
 
-Chalk-js is a library to facilitate colorful terminal/console outputs for javascript programs.
-Chalk-js supports the standard **8 colors** *(black, red, green, yellow, blue, pink, cyan, white)*
+chalk-js is a library to facilitate colorful terminal/console outputs for javascript programs.
+chalk-js supports the standard **8 colors** *(black, red, green, yellow, blue, pink, cyan, white)*
 and **8 styles** *(bold, dim, italic, underline, strikethrough, overline, blinking, inverted, double_underline)*
 [> See all Colors <](#colors) [> See all Styles<](#styles)
 ## Usage
