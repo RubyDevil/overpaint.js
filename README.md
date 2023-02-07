@@ -3,7 +3,7 @@
 Colorize.js is a library to facilitate colorful terminal/console outputs for javascript programs.
 Colorize.js supports the standard **8 colors** *(black, red, green, yellow, blue, pink, cyan, white)*
 and **8 styles** *(bold, dim, italic, underline, strikethrough, overline, blinking, inverted, double_underline)*
-[> See all Colors <](#colors-&-styles)
+[> See all Colors <](#colors) [> See all Styles<](#styles)
 ## Usage
 
 You can use the colored text feature directly in the native `console.log` **(Recommended)** : 
@@ -35,9 +35,9 @@ console.log(colorize.bold('This text is bold.'));
 console.log(colorize.yellow.bold('This text is yellow & bold'));
 ```
 
-## Colors & Styles
+## Colors
 
-| Colors   | Backgrounds | Light Colors   | Light Backgrounds |
+| Text     | Backgrounds | Light Text     | Light Backgrounds |
 | -------- | ----------- | -------------- | ----------------- |
 | `black`  | `bg_black`  | `light_black`  | `light_bg_black`  |
 | `red`    | `bg_red`    | `light_red`    | `light_bg_red`    |
@@ -48,17 +48,19 @@ console.log(colorize.yellow.bold('This text is yellow & bold'));
 | `cyan`   | `bg_cyan`   | `light_cyan`   | `light_bg_cyan`   |
 | `white`  | `bg_white`  | `light_white`  | `light_bg_white`  |
 
-| Styles             |
-| ------------------ |
-| `bold`             |
-| `dim`              |
-| `italic`           |
-| `underline`        |
-| `blinking`         |
-| `overline`         |
-| `inverted`         |
-| `strikethrough`    |
-| `double_underline` |
+## Styles
+
+| Style              | Description                              | Supported |
+| ------------------ | ---------------------------------------- | :-------: |
+| `dim`              | Reduces thr brightness                   | *Always*  |
+| `bold`             | Increases the font weight                | *Always*  |
+| `italic`           | Slightly inclines the text to the right  | *Always*  |
+| `inverted`         | Swaps the colors of the fore/background  | *Often*   |
+| `blinking`         | Animates the text with a blinking effect | *Rarely*  |
+| `overline`         | Draws a line above                       | *Rarely*  |
+| `underline`        | Draws a line underneath                  | *Always*  |
+| `strikethrough`    | Draws a line in the middle               | *Often*   |
+| `double_underline` | Draws a double line underneath           | *Rarely*  |
 
 ## Typings
 
@@ -68,3 +70,8 @@ Colorize.js is equipped with rich typings and autocompletion for editors like Vi
 ![Typings for the "italic" style](https://i.imgur.com/KYLrBwC.png)
 ![Styles for the "blue" color](https://i.imgur.com/PFXKXNx.png)
 ![Autocompletion](https://i.imgur.com/nTeFVY6.png)
+
+
+```diff
+- Published on my 18th birthday🥳 (Ulric Huot)
+```
