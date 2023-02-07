@@ -1,6 +1,6 @@
 {
   "name": "overpaint.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bring your terminal to life with fiery colors, styles, and animations!",
   "main": "./index.js",
   "typings": "./index.d.ts",
