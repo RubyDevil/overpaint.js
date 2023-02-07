@@ -23,7 +23,7 @@ const attributes = {
 };
 
 // const colorize = (x, c, a) => `[${(a)!=null?attributes[a]:'0'};${(c)!=null?colors[c]:'39'}m${x}[0;39m`
-const colorize = (x, c, a) => `\x1b[${(a)!=null?attributes[a]:'0'};${(c)!=null?colors[c]:'39'}m${x}\x1b[0;39m`;
+const pastel = (x, c, a) => `\x1b[${(a)!=null?attributes[a]:'0'};${(c)!=null?colors[c]:'39'}m${x}\x1b[0;39m`;
 
 for (const c in colors) {
 	colors['bg_' + c] = String(40 + colors[c]);
@@ -33,13 +33,13 @@ for (const c in colors) {
 };
 
 for (const c in colors) {
-	module.exports[c] = (x) => colorize(x, c, null);
+	module.exports[c] = (x) => pastel(x, c, null);
 	for (const a in attributes) {
-		module.exports[c][a] = (x) => colorize(x, c, a);
+		module.exports[c][a] = (x) => pastel(x, c, a);
 	}
 };
 for (const a in attributes) {
-	module.exports[a] = (x) => colorize(x, null, a)
+	module.exports[a] = (x) => pastel(x, null, a)
 };
 
 

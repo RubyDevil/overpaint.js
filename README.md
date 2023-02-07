@@ -1,14 +1,14 @@
-# chalk-js
+# Pastel.js
 
-chalk-js is a library to facilitate colorful terminal/console outputs for javascript programs.
-chalk-js supports the standard **8 colors** *(black, red, green, yellow, blue, pink, cyan, white)*
+Pastel.js is a library to facilitate colorful terminal/console outputs for javascript programs.
+Pastel.js supports the standard **8 colors** *(black, red, green, yellow, blue, pink, cyan, white)*
 and **8 styles** *(bold, dim, italic, underline, strikethrough, overline, blinking, inverted, double_underline)*
 [> See all Colors <](#colors) [> See all Styles<](#styles)
 ## Usage
 
 You can use the colored text feature directly in the native `console.log` **(Recommended)** : 
 ```js
-const chalk = require('chalk-js');
+const pastel = require('pastel.js');
 
 // #color[text]
 console.log('This text is #yellow[Yellow].');
@@ -23,16 +23,16 @@ console.log('This text is #yellow.bold[Yellow & Bold].');
 
 You can use the module's built-in functions as following :
 ```js
-const chalk = require('chalk-js');
+const pastel = require('pastel.js');
 
 // color('text')
-console.log(chalk.yellow('This text is yellow.'));
+console.log(pastel.yellow('This text is yellow.'));
 
 // style('text')
-console.log(chalk.bold('This text is bold.'));
+console.log(pastel.bold('This text is bold.'));
 
 // color.style('text')
-console.log(chalk.yellow.bold('This text is yellow & bold'));
+console.log(pastel.yellow.bold('This text is yellow & bold'));
 ```
 
 ## Colors
@@ -65,7 +65,7 @@ console.log(chalk.yellow.bold('This text is yellow & bold'));
 
 ## Typings
 
-Colorize.js is equipped with rich typings and autocompletion for editors like Visual Studio Code and many others
+Pastel.js is equipped with rich typings and autocompletion for editors like Visual Studio Code and many others
 
 ![Typings for the "blue" color](https://i.imgur.com/oOQ6QdE.png)
 ![Typings for the "italic" style](https://i.imgur.com/KYLrBwC.png)

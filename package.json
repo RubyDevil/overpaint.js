@@ -1,17 +1,25 @@
 {
-  "name": "chalk-js",
+  "name": "colorize-console",
   "version": "0.1.0",
   "description": "Bring your terminal to life with fiery colors, styles, and animations!",
   "main": "./index.js",
   "typings": "./index.d.ts",
   "keywords": [
-    "colorize",
+    "ruby-devil",
+    "pastel",
+    "pastel.js",
     "color",
+    "color.js",
     "colors",
+    "colors.js",
     "colored",
-    "colorized",
+    "colored.js",
+    "colorize",
+    "colorize.js",
     "paint",
+    "paint.js",
     "painted",
+    "painted.js",
     "chalk",
     "chalk.js",
     "terminal",
@@ -25,10 +33,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RubyDevil/colorize.js.git"
+    "url": "git+https://github.com/RubyDevil/pastel.js.git"
   },
   "bugs": {
-    "url": "https://github.com/RubyDevil/colorize.js/issues"
+    "url": "https://github.com/RubyDevil/pastel.js/issues"
   },
-  "homepage": "https://github.com/RubyDevil/colorize.js#readme"
+  "homepage": "https://github.com/RubyDevil/pastel.js#readme"
 }
