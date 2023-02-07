@@ -51,11 +51,12 @@ console.log(colorize.yellow.bold('This text is yellow & bold'));
 ## Styles
 
 | Style              | Description                              | Supported |
-| ------------------ | ---------------------------------------- | :-------: |
+| :----------------: | ---------------------------------------- | :-------: |
 | `dim`              | Reduces thr brightness                   | *Always*  |
 | `bold`             | Increases the font weight                | *Always*  |
 | `italic`           | Slightly inclines the text to the right  | *Always*  |
 | `inverted`         | Swaps the colors of the fore/background  | *Often*   |
+| `invisible`        | Makes the text invisible                 | *Often*   |
 | `blinking`         | Animates the text with a blinking effect | *Rarely*  |
 | `overline`         | Draws a line above                       | *Rarely*  |
 | `underline`        | Draws a line underneath                  | *Always*  |
