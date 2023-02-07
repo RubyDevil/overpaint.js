@@ -1,5 +1,5 @@
 {
-  "name": "colorize-js",
+  "name": "chalk-js",
   "version": "0.1.0",
   "description": "Bring your terminal to life with fiery colors, styles, and animations!",
   "main": "./colorize.js",
