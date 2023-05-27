@@ -1,811 +1,1335 @@
-export declare const black: {
-    (text:string): Black_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
+
+// 657 FGs + 657 BGs
+
+interface String_F {
+    _Black: string | "#000000",
+    _Night: string | "#0C090A",
+    _Charcoal: string | "#34282C",
+    _Oil: string | "#3B3131",
+    _LightBlack: string | "#454545",
+    _BlackCat: string | "#413839",
+    _Iridium: string | "#3D3C3A",
+    _BlackEel: string | "#463E3F",
+    _BlackCow: string | "#4C4646",
+    _GrayWolf: string | "#504A4B",
+    _VampireGray: string | "#565051",
+    _IronGray: string | "#52595D",
+    _GrayDolphin: string | "#5C5858",
+    _CarbonGray: string | "#625D5D",
+    _AshGray: string | "#666362",
+    _DimGray: string | "#696969",
+    _NardoGray: string | "#686A6C",
+    _CloudyGray: string | "#6D6968",
+    _SmokeyGray: string | "#726E6D",
+    _AlienGray: string | "#736F6E",
+    _SonicSilver: string | "#757575",
+    _PlatinumGray: string | "#797979",
+    _Granite: string | "#837E7C",
+    _Gray: string | "#808080",
+    _BattleshipGray: string | "#848482",
+    _GunmetalGray: string | "#8D918D",
+    _DarkGray: string | "#A9A9A9",
+    _GrayCloud: string | "#B6B6B4",
+    _Silver: string | "#C0C0C0",
+    _PaleSilver: string | "#C9C0BB",
+    _GrayGoose: string | "#D1D0CE",
+    _PlatinumSilver: string | "#CECECE",
+    _LightGray: string | "#D3D3D3",
+    _SilverWhite: string | "#DADBDD",
+    _Gainsboro: string | "#DCDCDC",
+    _Platinum: string | "#E5E4E2",
+    _MetallicSilver: string | "#BCC6CC",
+    _BlueGray: string | "#98AFC7",
+    _RomanSilver: string | "#838996",
+    _LightSlateGray: string | "#778899",
+    _SlateGray: string | "#708090",
+    _RatGray: string | "#6D7B8D",
+    _SlateGraniteGray: string | "#657383",
+    _JetGray: string | "#616D7E",
+    _MistBlue: string | "#646D7E",
+    _MarbleBlue: string | "#566D7E",
+    _SlateBlueGrey: string | "#737CA1",
+    _LightPurpleBlue: string | "#728FCE",
+    _AzureBlue: string | "#4863A0",
+    _BlueJay: string | "#2B547E",
+    _CharcoalBlue: string | "#36454F",
+    _DarkBlueGrey: string | "#29465B",
+    _DarkSlate: string | "#2B3856",
+    _DeepSeaBlue: string | "#123456",
+    _NightBlue: string | "#151B54",
+    _MidnightBlue: string | "#191970",
+    _Navy: string | "#000080",
+    _DenimDarkBlue: string | "#151B8D",
+    _DarkBlue: string | "#00008B",
+    _LapisBlue: string | "#15317E",
+    _NewMidnightBlue: string | "#0000A0",
+    _EarthBlue: string | "#0000A5",
+    _CobaltBlue: string | "#0020C2",
+    _MediumBlue: string | "#0000CD",
+    _BlueberryBlue: string | "#0041C2",
+    _CanaryBlue: string | "#2916F5",
+    _Blue: string | "#0000FF",
+    _SamcoBlue: string | "#0002FF",
+    _BrightBlue: string | "#0909FF",
+    _BlueOrchid: string | "#1F45FC",
+    _SapphireBlue: string | "#2554C7",
+    _BlueEyes: string | "#1569C7",
+    _BrightNavyBlue: string | "#1974D2",
+    _BalloonBlue: string | "#2B60DE",
+    _RoyalBlue: string | "#4169E1",
+    _OceanBlue: string | "#2B65EC",
+    _BlueRibbon: string | "#306EFF",
+    _BlueDress: string | "#157DEC",
+    _NeonBlue: string | "#1589FF",
+    _DodgerBlue: string | "#1E90FF",
+    _GlacialBlueIce: string | "#368BC1",
+    _SteelBlue: string | "#4682B4",
+    _SilkBlue: string | "#488AC7",
+    _WindowsBlue: string | "#357EC7",
+    _BlueIvy: string | "#3090C7",
+    _BlueKoi: string | "#659EC7",
+    _ColumbiaBlue: string | "#87AFC7",
+    _BabyBlue: string | "#95B9C7",
+    _CornflowerBlue: string | "#6495ED",
+    _SkyBlueDress: string | "#6698FF",
+    _Iceberg: string | "#56A5EC",
+    _ButterflyBlue: string | "#38ACEC",
+    _DeepSkyBlue: string | "#00BFFF",
+    _MiddayBlue: string | "#3BB9FF",
+    _CrystalBlue: string | "#5CB3FF",
+    _DenimBlue: string | "#79BAEC",
+    _DaySkyBlue: string | "#82CAFF",
+    _LightSkyBlue: string | "#87CEFA",
+    _SkyBlue: string | "#87CEEB",
+    _JeansBlue: string | "#A0CFEC",
+    _BlueAngel: string | "#B7CEEC",
+    _PastelBlue: string | "#B4CFEC",
+    _LightDayBlue: string | "#ADDFFF",
+    _SeaBlue: string | "#C2DFFF",
+    _HeavenlyBlue: string | "#C6DEFF",
+    _RobinEggBlue: string | "#BDEDFF",
+    _PowderBlue: string | "#B0E0E6",
+    _CoralBlue: string | "#AFDCEC",
+    _LightBlue: string | "#ADD8E6",
+    _LightSteelBlue: string | "#B0CFDE",
+    _GulfBlue: string | "#C9DFEC",
+    _PastelLightBlue: string | "#D5D6EA",
+    _LavenderBlue: string | "#E3E4FA",
+    _WhiteBlue: string | "#DBE9FA",
+    _Lavender: string | "#E6E6FA",
+    _Water: string | "#EBF4FA",
+    _AliceBlue: string | "#F0F8FF",
+    _GhostWhite: string | "#F8F8FF",
+    _Azure: string | "#F0FFFF",
+    _LightCyan: string | "#E0FFFF",
+    _LightSlate: string | "#CCFFFF",
+    _ElectricBlue: string | "#9AFEFF",
+    _TronBlue: string | "#7DFDFE",
+    _BlueZircon: string | "#57FEFF",
+    _Aqua: string | "#00FFFF",
+    _BrightCyan: string | "#0AFFFF",
+    _Celeste: string | "#50EBEC",
+    _BlueDiamond: string | "#4EE2EC",
+    _BrightTurquoise: string | "#16E2F5",
+    _BlueLagoon: string | "#8EEBEC",
+    _PaleTurquoise: string | "#AFEEEE",
+    _PaleBlueLily: string | "#CFECEC",
+    _LightTeal: string | "#B3D9D9",
+    _TiffanyBlue: string | "#81D8D0",
+    _BlueHosta: string | "#77BFC7",
+    _CyanOpaque: string | "#92C7C7",
+    _NorthernLightsBlue: string | "#78C7C7",
+    _BlueGreen: string | "#7BCCB5",
+    _MediumAquaMarine: string | "#66CDAA",
+    _MagicMint: string | "#AAF0D1",
+    _LightAquamarine: string | "#93FFE8",
+    _Aquamarine: string | "#7FFFD4",
+    _BrightTeal: string | "#01F9C6",
+    _Turquoise: string | "#40E0D0",
+    _MediumTurquoise: string | "#48D1CC",
+    _DeepTurquoise: string | "#48CCCD",
+    _Jellyfish: string | "#46C7C7",
+    _BlueTurquoise: string | "#43C6DB",
+    _DarkTurquoise: string | "#00CED1",
+    _MacawBlueGreen: string | "#43BFC7",
+    _LightSeaGreen: string | "#20B2AA",
+    _SeafoamGreen: string | "#3EA99F",
+    _CadetBlue: string | "#5F9EA0",
+    _DeepSea: string | "#3B9C9C",
+    _DarkCyan: string | "#008B8B",
+    _TealGreen: string | "#00827F",
+    _Teal: string | "#008080",
+    _TealBlue: string | "#007C80",
+    _MediumTeal: string | "#045F5F",
+    _DarkTeal: string | "#045D5D",
+    _DeepTeal: string | "#033E3E",
+    _DarkSlateGray: string | "#25383C",
+    _Gunmetal: string | "#2C3539",
+    _BlueMossGreen: string | "#3C565B",
+    _BeetleGreen: string | "#4C787E",
+    _GrayishTurquoise: string | "#5E7D7E",
+    _GreenishBlue: string | "#307D7E",
+    _AquamarineStone: string | "#348781",
+    _SeaTurtleGreen: string | "#438D80",
+    _DullSeaGreen: string | "#4E8975",
+    _DarkGreenBlue: string | "#1F6357",
+    _DeepSeaGreen: string | "#306754",
+    _BottleGreen: string | "#006A4E",
+    _SeaGreen: string | "#2E8B57",
+    _ElfGreen: string | "#1B8A6B",
+    _DarkMint: string | "#31906E",
+    _Jade: string | "#00A36C",
+    _EarthGreen: string | "#34A56F",
+    _ChromeGreen: string | "#1AA260",
+    _Emerald: string | "#50C878",
+    _Mint: string | "#3EB489",
+    _MediumSeaGreen: string | "#3CB371",
+    _MetallicGreen: string | "#7C9D8E",
+    _CamouflageGreen: string | "#78866B",
+    _SageGreen: string | "#848B79",
+    _HazelGreen: string | "#617C58",
+    _VenomGreen: string | "#728C00",
+    _OliveDrab: string | "#6B8E23",
+    _Olive: string | "#808000",
+    _DarkOliveGreen: string | "#556B2F",
+    _MilitaryGreen: string | "#4E5B31",
+    _GreenLeaves: string | "#3A5F0B",
+    _ArmyGreen: string | "#4B5320",
+    _FernGreen: string | "#667C26",
+    _FallForestGreen: string | "#4E9258",
+    _IrishGreen: string | "#08A04B",
+    _PineGreen: string | "#387C44",
+    _MediumForestGreen: string | "#347235",
+    _JungleGreen: string | "#347C2C",
+    _CactusGreen: string | "#227442",
+    _ForestGreen: string | "#228B22",
+    _Green: string | "#008000",
+    _DarkGreen: string | "#006400",
+    _DeepGreen: string | "#056608",
+    _DeepEmeraldGreen: string | "#046307",
+    _HunterGreen: string | "#355E3B",
+    _DarkForestGreen: string | "#254117",
+    _LotusGreen: string | "#004225",
+    _SeaweedGreen: string | "#437C17",
+    _ShamrockGreen: string | "#347C17",
+    _GreenOnion: string | "#6AA121",
+    _MossGreen: string | "#8A9A5B",
+    _GrassGreen: string | "#3F9B0B",
+    _GreenPepper: string | "#4AA02C",
+    _DarkLimeGreen: string | "#41A317",
+    _ParrotGreen: string | "#12AD2B",
+    _CloverGreen: string | "#3EA055",
+    _DinosaurGreen: string | "#73A16C",
+    _GreenSnake: string | "#6CBB3C",
+    _AlienGreen: string | "#6CC417",
+    _GreenApple: string | "#4CC417",
+    _LimeGreen: string | "#32CD32",
+    _PeaGreen: string | "#52D017",
+    _KellyGreen: string | "#4CC552",
+    _ZombieGreen: string | "#54C571",
+    _GreenPeas: string | "#89C35C",
+    _DollarBillGreen: string | "#85BB65",
+    _FrogGreen: string | "#99C68E",
+    _TurquoiseGreen: string | "#A0D6B4",
+    _DarkSeaGreen: string | "#8FBC8F",
+    _BasilGreen: string | "#829F82",
+    _GrayGreen: string | "#A2AD9C",
+    _IguanaGreen: string | "#9CB071",
+    _CitronGreen: string | "#8FB31D",
+    _AcidGreen: string | "#B0BF1A",
+    _AvocadoGreen: string | "#B2C248",
+    _PistachioGreen: string | "#9DC209",
+    _SaladGreen: string | "#A1C935",
+    _YellowGreen: string | "#9ACD32",
+    _PastelGreen: string | "#77DD77",
+    _HummingbirdGreen: string | "#7FE817",
+    _NebulaGreen: string | "#59E817",
+    _StoplightGoGreen: string | "#57E964",
+    _NeonGreen: string | "#16F529",
+    _JadeGreen: string | "#5EFB6E",
+    _LimeMintGreen: string | "#36F57F",
+    _SpringGreen: string | "#00FF7F",
+    _MediumSpringGreen: string | "#00FA9A",
+    _EmeraldGreen: string | "#5FFB17",
+    _Lime: string | "#00FF00",
+    _LawnGreen: string | "#7CFC00",
+    _BrightGreen: string | "#66FF00",
+    _Chartreuse: string | "#7FFF00",
+    _YellowLawnGreen: string | "#87F717",
+    _AloeVeraGreen: string | "#98F516",
+    _DullGreenYellow: string | "#B1FB17",
+    _LemonGreen: string | "#ADF802",
+    _GreenYellow: string | "#ADFF2F",
+    _ChameleonGreen: string | "#BDF516",
+    _NeonYellowGreen: string | "#DAEE01",
+    _YellowGreenGrosbeak: string | "#E2F516",
+    _TeaGreen: string | "#CCFB5D",
+    _SlimeGreen: string | "#BCE954",
+    _AlgaeGreen: string | "#64E986",
+    _LightGreen: string | "#90EE90",
+    _DragonGreen: string | "#6AFB92",
+    _PaleGreen: string | "#98FB98",
+    _MintGreen: string | "#98FF98",
+    _GreenThumb: string | "#B5EAAA",
+    _OrganicBrown: string | "#E3F9A6",
+    _LightJade: string | "#C3FDB8",
+    _LightMintGreen: string | "#C2E5D3",
+    _LightRoseGreen: string | "#DBF9DB",
+    _ChromeWhite: string | "#E8F1D4",
+    _HoneyDew: string | "#F0FFF0",
+    _MintCream: string | "#F5FFFA",
+    _LemonChiffon: string | "#FFFACD",
+    _Parchment: string | "#FFFFC2",
+    _Cream: string | "#FFFFCC",
+    _CreamWhite: string | "#FFFDD0",
+    _LightGoldenRodYellow: string | "#FAFAD2",
+    _LightYellow: string | "#FFFFE0",
+    _Beige: string | "#F5F5DC",
+    _Cornsilk: string | "#FFF8DC",
+    _Blonde: string | "#FBF6D9",
+    _Champagne: string | "#F7E7CE",
+    _AntiqueWhite: string | "#FAEBD7",
+    _PapayaWhip: string | "#FFEFD5",
+    _BlanchedAlmond: string | "#FFEBCD",
+    _Bisque: string | "#FFE4C4",
+    _Wheat: string | "#F5DEB3",
+    _Moccasin: string | "#FFE4B5",
+    _Peach: string | "#FFE5B4",
+    _LightOrange: string | "#FED8B1",
+    _PeachPuff: string | "#FFDAB9",
+    _CoralPeach: string | "#FBD5AB",
+    _NavajoWhite: string | "#FFDEAD",
+    _GoldenBlonde: string | "#FBE7A1",
+    _GoldenSilk: string | "#F3E3C3",
+    _DarkBlonde: string | "#F0E2B6",
+    _LightGold: string | "#F1E5AC",
+    _Vanilla: string | "#F3E5AB",
+    _TanBrown: string | "#ECE5B6",
+    _DirtyWhite: string | "#E8E4C9",
+    _PaleGoldenRod: string | "#EEE8AA",
+    _Khaki: string | "#F0E68C",
+    _CardboardBrown: string | "#EDDA74",
+    _HarvestGold: string | "#EDE275",
+    _SunYellow: string | "#FFE87C",
+    _CornYellow: string | "#FFF380",
+    _PastelYellow: string | "#FAF884",
+    _NeonYellow: string | "#FFFF33",
+    _Yellow: string | "#FFFF00",
+    _CanaryYellow: string | "#FFEF00",
+    _BananaYellow: string | "#F5E216",
+    _MustardYellow: string | "#FFDB58",
+    _GoldenYellow: string | "#FFDF00",
+    _BoldYellow: string | "#F9DB24",
+    _RubberDuckyYellow: string | "#FFD801",
+    _Gold: string | "#FFD700",
+    _BrightGold: string | "#FDD017",
+    _ChromeGold: string | "#FFCE44",
+    _GoldenBrown: string | "#EAC117",
+    _DeepYellow: string | "#F6BE00",
+    _MacaroniandCheese: string | "#F2BB66",
+    _Saffron: string | "#FBB917",
+    _NeonGold: string | "#FDBD01",
+    _Beer: string | "#FBB117",
+    _YellowOrangeYellow: string | "#FFAE42",
+    _Cantaloupe: string | "#FFA62F",
+    _CheeseOrange: string | "#FFA600",
+    _Orange: string | "#FFA500",
+    _BrownSand: string | "#EE9A4D",
+    _SandyBrown: string | "#F4A460",
+    _BrownSugar: string | "#E2A76F",
+    _CamelBrown: string | "#C19A6B",
+    _DeerBrown: string | "#E6BF83",
+    _BurlyWood: string | "#DEB887",
+    _Tan: string | "#D2B48C",
+    _LightFrenchBeige: string | "#C8AD7F",
+    _Sand: string | "#C2B280",
+    _Sage: string | "#BCB88A",
+    _FallLeafBrown: string | "#C8B560",
+    _GingerBrown: string | "#C9BE62",
+    _BronzeGold: string | "#C9AE5D",
+    _DarkKhaki: string | "#BDB76B",
+    _OliveGreen: string | "#BAB86C",
+    _Brass: string | "#B5A642",
+    _CookieBrown: string | "#C7A317",
+    _MetallicGold: string | "#D4AF37",
+    _BeeYellow: string | "#E9AB17",
+    _SchoolBusYellow: string | "#E8A317",
+    _GoldenRod: string | "#DAA520",
+    _OrangeGold: string | "#D4A017",
+    _Caramel: string | "#C68E17",
+    _DarkGoldenRod: string | "#B8860B",
+    _Cinnamon: string | "#C58917",
+    _Peru: string | "#CD853F",
+    _Bronze: string | "#CD7F32",
+    _TigerOrange: string | "#C88141",
+    _Copper: string | "#B87333",
+    _DarkGold: string | "#AA6C39",
+    _MetallicBronze: string | "#A97142",
+    _DarkAlmond: string | "#AB784E",
+    _Wood: string | "#966F33",
+    _OakBrown: string | "#806517",
+    _AntiqueBronze: string | "#665D1E",
+    _Hazel: string | "#8E7618",
+    _DarkYellow: string | "#8B8000",
+    _DarkMoccasin: string | "#827839",
+    _KhakiGreen: string | "#8A865D",
+    _MillenniumJade: string | "#93917C",
+    _DarkBeige: string | "#9F8C76",
+    _BulletShell: string | "#AF9B60",
+    _ArmyBrown: string | "#827B60",
+    _Sandstone: string | "#786D5F",
+    _Taupe: string | "#483C32",
+    _Mocha: string | "#493D26",
+    _MilkChocolate: string | "#513B1C",
+    _GrayBrown: string | "#3D3635",
+    _DarkCoffee: string | "#3B2F2F",
+    _OldBurgundy: string | "#43302E",
+    _WesternCharcoal: string | "#49413F",
+    _BakersBrown: string | "#5C3317",
+    _DarkBrown: string | "#654321",
+    _SepiaBrown: string | "#704214",
+    _DarkBronze: string | "#804A00",
+    _Coffee: string | "#6F4E37",
+    _BrownBear: string | "#835C3B",
+    _RedDirt: string | "#7F5217",
+    _Sepia: string | "#7F462C",
+    _Sienna: string | "#A0522D",
+    _SaddleBrown: string | "#8B4513",
+    _DarkSienna: string | "#8A4117",
+    _Sangria: string | "#7E3817",
+    _BloodRed: string | "#7E3517",
+    _Chestnut: string | "#954535",
+    _CoralBrown: string | "#9E4638",
+    _ChestnutRed: string | "#C34A2C",
+    _Mahogany: string | "#C04000",
+    _RedGold: string | "#EB5406",
+    _RedFox: string | "#C35817",
+    _DarkBisque: string | "#B86500",
+    _LightBrown: string | "#B5651D",
+    _PetraGold: string | "#B76734",
+    _Rust: string | "#C36241",
+    _CopperRed: string | "#CB6D51",
+    _OrangeSalmon: string | "#C47451",
+    _Chocolate: string | "#D2691E",
+    _Sedona: string | "#CC6600",
+    _PapayaOrange: string | "#E56717",
+    _HalloweenOrange: string | "#E66C2C",
+    _NeonOrange: string | "#FF6700",
+    _BrightOrange: string | "#FF5F1F",
+    _PumpkinOrange: string | "#F87217",
+    _CarrotOrange: string | "#F88017",
+    _DarkOrange: string | "#FF8C00",
+    _ConstructionConeOrange: string | "#F87431",
+    _IndianSaffron: string | "#FF7722",
+    _SunriseOrange: string | "#E67451",
+    _MangoOrange: string | "#FF8040",
+    _Coral: string | "#FF7F50",
+    _BasketBallOrange: string | "#F88158",
+    _LightSalmonRose: string | "#F9966B",
+    _LightSalmon: string | "#FFA07A",
+    _DarkSalmon: string | "#E9967A",
+    _Tangerine: string | "#E78A61",
+    _LightCopper: string | "#DA8A67",
+    _SalmonPink: string | "#FF8674",
+    _Salmon: string | "#FA8072",
+    _PeachPink: string | "#F98B88",
+    _LightCoral: string | "#F08080",
+    _PastelRed: string | "#F67280",
+    _PinkCoral: string | "#E77471",
+    _BeanRed: string | "#F75D59",
+    _ValentineRed: string | "#E55451",
+    _IndianRed: string | "#CD5C5C",
+    _Tomato: string | "#FF6347",
+    _ShockingOrange: string | "#E55B3C",
+    _OrangeRed: string | "#FF4500",
+    _Red: string | "#FF0000",
+    _NeonRed: string | "#FD1C03",
+    _ScarletRed: string | "#FF2400",
+    _RubyRed: string | "#F62217",
+    _FerrariRed: string | "#F70D1A",
+    _FireEngineRed: string | "#F62817",
+    _LavaRed: string | "#E42217",
+    _LoveRed: string | "#E41B17",
+    _Grapefruit: string | "#DC381F",
+    _CherryRed: string | "#C24641",
+    _ChilliPepper: string | "#C11B17",
+    _FireBrick: string | "#B22222",
+    _TomatoSauceRed: string | "#B21807",
+    _Brown: string | "#A52A2A",
+    _CarbonRed: string | "#A70D2A",
+    _Cranberry: string | "#9F000F",
+    _SaffronRed: string | "#931314",
+    _CrimsonRed: string | "#990000",
+    _RedWineRed: string | "#990012",
+    _DarkRed: string | "#8B0000",
+    _Maroon: string | "#800000",
+    _Burgundy: string | "#8C001A",
+    _Vermilion: string | "#7E191B",
+    _DeepRed: string | "#800517",
+    _RedBlood: string | "#660000",
+    _BloodNight: string | "#551606",
+    _DarkScarlet: string | "#560319",
+    _BlackBean: string | "#3D0C02",
+    _ChocolateBrown: string | "#3F000F",
+    _Midnight: string | "#2B1B17",
+    _PurpleLily: string | "#550A35",
+    _PurpleMaroon: string | "#810541",
+    _PlumPie: string | "#7D0541",
+    _PlumVelvet: string | "#7D0552",
+    _DarkRaspberry: string | "#872657",
+    _VelvetMaroon: string | "#7E354D",
+    _RosyFinch: string | "#7F4E52",
+    _DullPurple: string | "#7F525D",
+    _Puce: string | "#7F5A58",
+    _RoseDust: string | "#997070",
+    _PastelBrown: string | "#B1907F",
+    _RosyPink: string | "#B38481",
+    _RosyBrown: string | "#BC8F8F",
+    _KhakiRose: string | "#C5908E",
+    _LipstickPink: string | "#C48793",
+    _PinkBrown: string | "#C48189",
+    _OldRose: string | "#C08081",
+    _DustyPink: string | "#D58A94",
+    _PinkDaisy: string | "#E799A3",
+    _Rose: string | "#E8ADAA",
+    _DustyRose: string | "#C9A9A6",
+    _SilverPink: string | "#C4AEAD",
+    _GoldPink: string | "#E6C7C2",
+    _RoseGold: string | "#ECC5C0",
+    _DeepPeach: string | "#FFCBA4",
+    _PastelOrange: string | "#F8B88B",
+    _DesertSand: string | "#EDC9AF",
+    _UnbleachedSilk: string | "#FFDDCA",
+    _PigPink: string | "#FDD7E4",
+    _PalePink: string | "#F2D4D7",
+    _Blush: string | "#FFE6E8",
+    _MistyRose: string | "#FFE4E1",
+    _PinkBubbleGum: string | "#FFDFDD",
+    _LightRose: string | "#FBCFCD",
+    _LightRed: string | "#FFCCCB",
+    _WarmPink: string | "#F6C6BD",
+    _DeepRose: string | "#FBBBB9",
+    _Pink: string | "#FFC0CB",
+    _LightPink: string | "#FFB6C1",
+    _SoftPink: string | "#FFB8BF",
+    _DonutPink: string | "#FAAFBE",
+    _BabyPink: string | "#FAAFBA",
+    _FlamingoPink: string | "#F9A7B0",
+    _PastelPink: string | "#FEA3AA",
+    _RosePinkRose: string | "#E7A1B0",
+    _CadillacPink: string | "#E38AAE",
+    _CarnationPink: string | "#F778A1",
+    _PastelRose: string | "#E5788F",
+    _BlushRed: string | "#E56E94",
+    _PaleVioletRed: string | "#DB7093",
+    _PurplePink: string | "#D16587",
+    _TulipPink: string | "#C25A7C",
+    _BashfulPink: string | "#C25283",
+    _DarkPink: string | "#E75480",
+    _DarkHotPink: string | "#F660AB",
+    _HotPink: string | "#FF69B4",
+    _WatermelonPink: string | "#FC6C85",
+    _VioletRed: string | "#F6358A",
+    _HotDeepPink: string | "#F52887",
+    _BrightPink: string | "#FF007F",
+    _DeepPink: string | "#FF1493",
+    _NeonPink: string | "#F535AA",
+    _ChromePink: string | "#FF33AA",
+    _NeonHotPink: string | "#FD349C",
+    _PinkCupcake: string | "#E45E9D",
+    _RoyalPink: string | "#E759AC",
+    _DimorphothecaMagenta: string | "#E3319D",
+    _PinkLemonade: string | "#E4287C",
+    _RedPink: string | "#FA2A55",
+    _Raspberry: string | "#E30B5D",
+    _Crimson: string | "#DC143C",
+    _BrightMaroon: string | "#C32148",
+    _RoseRed: string | "#C21E56",
+    _RoguePink: string | "#C12869",
+    _BurntPink: string | "#C12267",
+    _PinkViolet: string | "#CA226B",
+    _MagentaPink: string | "#CC338B",
+    _MediumVioletRed: string | "#C71585",
+    _DarkCarnationPink: string | "#C12283",
+    _RaspberryPurple: string | "#B3446C",
+    _PinkPlum: string | "#B93B8F",
+    _Orchid: string | "#DA70D6",
+    _DeepMauve: string | "#DF73D4",
+    _Violet: string | "#EE82EE",
+    _FuchsiaPink: string | "#FF77FF",
+    _BrightNeonPink: string | "#F433FF",
+    _Fuchsia: string | "#FF00FF",
+    _CrimsonPurple: string | "#E238EC",
+    _HeliotropePurple: string | "#D462FF",
+    _TyrianPurple: string | "#C45AEC",
+    _MediumOrchid: string | "#BA55D3",
+    _PurpleFlower: string | "#A74AC7",
+    _OrchidPurple: string | "#B048B5",
+    _RichLilac: string | "#B666D2",
+    _PastelViolet: string | "#D291BC",
+    _MauveTaupe: string | "#915F6D",
+    _ViolaPurple: string | "#7E587E",
+    _Eggplant: string | "#614051",
+    _PlumPurple: string | "#583759",
+    _Grape: string | "#5E5A80",
+    _PurpleNavy: string | "#4E5180",
+    _SlateBlue: string | "#6A5ACD",
+    _BlueLotus: string | "#6960EC",
+    _Blurple: string | "#5865F2",
+    _LightSlateBlue: string | "#736AFF",
+    _MediumSlateBlue: string | "#7B68EE",
+    _PeriwinklePurple: string | "#7575CF",
+    _VeryPeri: string | "#6667AB",
+    _BrightGrape: string | "#6F2DA8",
+    _PurpleAmethyst: string | "#6C2DC7",
+    _BrightPurple: string | "#6A0DAD",
+    _DeepPeriwinkle: string | "#5453A6",
+    _DarkSlateBlue: string | "#483D8B",
+    _PurpleHaze: string | "#4E387E",
+    _PurpleIris: string | "#571B7E",
+    _DarkPurple: string | "#4B0150",
+    _DeepPurple: string | "#36013F",
+    _MidnightPurple: string | "#2E1A47",
+    _PurpleMonster: string | "#461B7E",
+    _Indigo: string | "#4B0082",
+    _BlueWhale: string | "#342D7E",
+    _RebeccaPurple: string | "#663399",
+    _PurpleJam: string | "#6A287E",
+    _DarkMagenta: string | "#8B008B",
+    _Purple: string | "#800080",
+    _FrenchLilac: string | "#86608E",
+    _DarkOrchid: string | "#9932CC",
+    _DarkViolet: string | "#9400D3",
+    _PurpleViolet: string | "#8D38C9",
+    _JasminePurple: string | "#A23BEC",
+    _PurpleDaffodil: string | "#B041FF",
+    _ClematisViolet: string | "#842DCE",
+    _BlueViolet: string | "#8A2BE2",
+    _PurpleSageBush: string | "#7A5DC7",
+    _LovelyPurple: string | "#7F38EC",
+    _NeonPurple: string | "#9D00FF",
+    _PurplePlum: string | "#8E35EF",
+    _AztechPurple: string | "#893BFF",
+    _MediumPurple: string | "#9370DB",
+    _LightPurple: string | "#8467D7",
+    _CrocusPurple: string | "#9172EC",
+    _PurpleMimosa: string | "#9E7BFF",
+    _Periwinkle: string | "#CCCCFF",
+    _PaleLilac: string | "#DCD0FF",
+    _LavenderPurple: string | "#967BB6",
+    _RosePurple: string | "#B09FCA",
+    _Lilac: string | "#C8A2C8",
+    _Mauve: string | "#E0B0FF",
+    _BrightLilac: string | "#D891EF",
+    _PurpleDragon: string | "#C38EC7",
+    _Plum: string | "#DDA0DD",
+    _BlushPink: string | "#E6A9EC",
+    _PastelPurple: string | "#F2A2E8",
+    _BlossomPink: string | "#F9B7FF",
+    _WisteriaPurple: string | "#C6AEC7",
+    _PurpleThistle: string | "#D2B9D3",
+    _Thistle: string | "#D8BFD8",
+    _PurpleWhite: string | "#DFD3E3",
+    _PeriwinklePink: string | "#E9CFEC",
+    _CottonCandy: string | "#FCDFFF",
+    _LavenderPinocchio: string | "#EBDDE2",
+    _DarkWhite: string | "#E1D9D1",
+    _AshWhite: string | "#E9E4D4",
+    _WhiteChocolate: string | "#EDE6D6",
+    _SoftIvory: string | "#FAF0DD",
+    _OffWhite: string | "#F8F0E3",
+    _PearlWhite: string | "#F8F6F0",
+    _RedWhite: string | "#F3E8EA",
+    _LavenderBlush: string | "#FFF0F5",
+    _Pearl: string | "#FDEEF4",
+    _EggShell: string | "#FFF9E3",
+    _OldLace: string | "#FEF0E3",
+    _Linen: string | "#FAF0E6",
+    _SeaShell: string | "#FFF5EE",
+    _BoneWhite: string | "#F9F6EE",
+    _Rice: string | "#FAF5EF",
+    _FloralWhite: string | "#FFFAF0",
+    _Ivory: string | "#FFFFF0",
+    _WhiteGold: string | "#FFFFF4",
+    _LightWhite: string | "#FFFFF7",
+    _WhiteSmoke: string | "#F5F5F5",
+    _Cotton: string | "#FBFBF9",
+    _Snow: string | "#FFFAFA",
+    _MilkWhite: string | "#FEFCFF",
+    _HalfWhite: string | "#FFFEFA",
+    _White: string | "#FFFFFF",
 }
 
-
-export declare const red: {
-    (text:string): Red_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
+interface String_B {
+    _Black_BG: string | "#000000",
+    _Night_BG: string | "#0C090A",
+    _Charcoal_BG: string | "#34282C",
+    _Oil_BG: string | "#3B3131",
+    _LightBlack_BG: string | "#454545",
+    _BlackCat_BG: string | "#413839",
+    _Iridium_BG: string | "#3D3C3A",
+    _BlackEel_BG: string | "#463E3F",
+    _BlackCow_BG: string | "#4C4646",
+    _GrayWolf_BG: string | "#504A4B",
+    _VampireGray_BG: string | "#565051",
+    _IronGray_BG: string | "#52595D",
+    _GrayDolphin_BG: string | "#5C5858",
+    _CarbonGray_BG: string | "#625D5D",
+    _AshGray_BG: string | "#666362",
+    _DimGray_BG: string | "#696969",
+    _NardoGray_BG: string | "#686A6C",
+    _CloudyGray_BG: string | "#6D6968",
+    _SmokeyGray_BG: string | "#726E6D",
+    _AlienGray_BG: string | "#736F6E",
+    _SonicSilver_BG: string | "#757575",
+    _PlatinumGray_BG: string | "#797979",
+    _Granite_BG: string | "#837E7C",
+    _Gray_BG: string | "#808080",
+    _BattleshipGray_BG: string | "#848482",
+    _GunmetalGray_BG: string | "#8D918D",
+    _DarkGray_BG: string | "#A9A9A9",
+    _GrayCloud_BG: string | "#B6B6B4",
+    _Silver_BG: string | "#C0C0C0",
+    _PaleSilver_BG: string | "#C9C0BB",
+    _GrayGoose_BG: string | "#D1D0CE",
+    _PlatinumSilver_BG: string | "#CECECE",
+    _LightGray_BG: string | "#D3D3D3",
+    _SilverWhite_BG: string | "#DADBDD",
+    _Gainsboro_BG: string | "#DCDCDC",
+    _Platinum_BG: string | "#E5E4E2",
+    _MetallicSilver_BG: string | "#BCC6CC",
+    _BlueGray_BG: string | "#98AFC7",
+    _RomanSilver_BG: string | "#838996",
+    _LightSlateGray_BG: string | "#778899",
+    _SlateGray_BG: string | "#708090",
+    _RatGray_BG: string | "#6D7B8D",
+    _SlateGraniteGray_BG: string | "#657383",
+    _JetGray_BG: string | "#616D7E",
+    _MistBlue_BG: string | "#646D7E",
+    _MarbleBlue_BG: string | "#566D7E",
+    _SlateBlueGrey_BG: string | "#737CA1",
+    _LightPurpleBlue_BG: string | "#728FCE",
+    _AzureBlue_BG: string | "#4863A0",
+    _BlueJay_BG: string | "#2B547E",
+    _CharcoalBlue_BG: string | "#36454F",
+    _DarkBlueGrey_BG: string | "#29465B",
+    _DarkSlate_BG: string | "#2B3856",
+    _DeepSeaBlue_BG: string | "#123456",
+    _NightBlue_BG: string | "#151B54",
+    _MidnightBlue_BG: string | "#191970",
+    _Navy_BG: string | "#000080",
+    _DenimDarkBlue_BG: string | "#151B8D",
+    _DarkBlue_BG: string | "#00008B",
+    _LapisBlue_BG: string | "#15317E",
+    _NewMidnightBlue_BG: string | "#0000A0",
+    _EarthBlue_BG: string | "#0000A5",
+    _CobaltBlue_BG: string | "#0020C2",
+    _MediumBlue_BG: string | "#0000CD",
+    _BlueberryBlue_BG: string | "#0041C2",
+    _CanaryBlue_BG: string | "#2916F5",
+    _Blue_BG: string | "#0000FF",
+    _SamcoBlue_BG: string | "#0002FF",
+    _BrightBlue_BG: string | "#0909FF",
+    _BlueOrchid_BG: string | "#1F45FC",
+    _SapphireBlue_BG: string | "#2554C7",
+    _BlueEyes_BG: string | "#1569C7",
+    _BrightNavyBlue_BG: string | "#1974D2",
+    _BalloonBlue_BG: string | "#2B60DE",
+    _RoyalBlue_BG: string | "#4169E1",
+    _OceanBlue_BG: string | "#2B65EC",
+    _BlueRibbon_BG: string | "#306EFF",
+    _BlueDress_BG: string | "#157DEC",
+    _NeonBlue_BG: string | "#1589FF",
+    _DodgerBlue_BG: string | "#1E90FF",
+    _GlacialBlueIce_BG: string | "#368BC1",
+    _SteelBlue_BG: string | "#4682B4",
+    _SilkBlue_BG: string | "#488AC7",
+    _WindowsBlue_BG: string | "#357EC7",
+    _BlueIvy_BG: string | "#3090C7",
+    _BlueKoi_BG: string | "#659EC7",
+    _ColumbiaBlue_BG: string | "#87AFC7",
+    _BabyBlue_BG: string | "#95B9C7",
+    _CornflowerBlue_BG: string | "#6495ED",
+    _SkyBlueDress_BG: string | "#6698FF",
+    _Iceberg_BG: string | "#56A5EC",
+    _ButterflyBlue_BG: string | "#38ACEC",
+    _DeepSkyBlue_BG: string | "#00BFFF",
+    _MiddayBlue_BG: string | "#3BB9FF",
+    _CrystalBlue_BG: string | "#5CB3FF",
+    _DenimBlue_BG: string | "#79BAEC",
+    _DaySkyBlue_BG: string | "#82CAFF",
+    _LightSkyBlue_BG: string | "#87CEFA",
+    _SkyBlue_BG: string | "#87CEEB",
+    _JeansBlue_BG: string | "#A0CFEC",
+    _BlueAngel_BG: string | "#B7CEEC",
+    _PastelBlue_BG: string | "#B4CFEC",
+    _LightDayBlue_BG: string | "#ADDFFF",
+    _SeaBlue_BG: string | "#C2DFFF",
+    _HeavenlyBlue_BG: string | "#C6DEFF",
+    _RobinEggBlue_BG: string | "#BDEDFF",
+    _PowderBlue_BG: string | "#B0E0E6",
+    _CoralBlue_BG: string | "#AFDCEC",
+    _LightBlue_BG: string | "#ADD8E6",
+    _LightSteelBlue_BG: string | "#B0CFDE",
+    _GulfBlue_BG: string | "#C9DFEC",
+    _PastelLightBlue_BG: string | "#D5D6EA",
+    _LavenderBlue_BG: string | "#E3E4FA",
+    _WhiteBlue_BG: string | "#DBE9FA",
+    _Lavender_BG: string | "#E6E6FA",
+    _Water_BG: string | "#EBF4FA",
+    _AliceBlue_BG: string | "#F0F8FF",
+    _GhostWhite_BG: string | "#F8F8FF",
+    _Azure_BG: string | "#F0FFFF",
+    _LightCyan_BG: string | "#E0FFFF",
+    _LightSlate_BG: string | "#CCFFFF",
+    _ElectricBlue_BG: string | "#9AFEFF",
+    _TronBlue_BG: string | "#7DFDFE",
+    _BlueZircon_BG: string | "#57FEFF",
+    _Aqua_BG: string | "#00FFFF",
+    _BrightCyan_BG: string | "#0AFFFF",
+    _Celeste_BG: string | "#50EBEC",
+    _BlueDiamond_BG: string | "#4EE2EC",
+    _BrightTurquoise_BG: string | "#16E2F5",
+    _BlueLagoon_BG: string | "#8EEBEC",
+    _PaleTurquoise_BG: string | "#AFEEEE",
+    _PaleBlueLily_BG: string | "#CFECEC",
+    _LightTeal_BG: string | "#B3D9D9",
+    _TiffanyBlue_BG: string | "#81D8D0",
+    _BlueHosta_BG: string | "#77BFC7",
+    _CyanOpaque_BG: string | "#92C7C7",
+    _NorthernLightsBlue_BG: string | "#78C7C7",
+    _BlueGreen_BG: string | "#7BCCB5",
+    _MediumAquaMarine_BG: string | "#66CDAA",
+    _MagicMint_BG: string | "#AAF0D1",
+    _LightAquamarine_BG: string | "#93FFE8",
+    _Aquamarine_BG: string | "#7FFFD4",
+    _BrightTeal_BG: string | "#01F9C6",
+    _Turquoise_BG: string | "#40E0D0",
+    _MediumTurquoise_BG: string | "#48D1CC",
+    _DeepTurquoise_BG: string | "#48CCCD",
+    _Jellyfish_BG: string | "#46C7C7",
+    _BlueTurquoise_BG: string | "#43C6DB",
+    _DarkTurquoise_BG: string | "#00CED1",
+    _MacawBlueGreen_BG: string | "#43BFC7",
+    _LightSeaGreen_BG: string | "#20B2AA",
+    _SeafoamGreen_BG: string | "#3EA99F",
+    _CadetBlue_BG: string | "#5F9EA0",
+    _DeepSea_BG: string | "#3B9C9C",
+    _DarkCyan_BG: string | "#008B8B",
+    _TealGreen_BG: string | "#00827F",
+    _Teal_BG: string | "#008080",
+    _TealBlue_BG: string | "#007C80",
+    _MediumTeal_BG: string | "#045F5F",
+    _DarkTeal_BG: string | "#045D5D",
+    _DeepTeal_BG: string | "#033E3E",
+    _DarkSlateGray_BG: string | "#25383C",
+    _Gunmetal_BG: string | "#2C3539",
+    _BlueMossGreen_BG: string | "#3C565B",
+    _BeetleGreen_BG: string | "#4C787E",
+    _GrayishTurquoise_BG: string | "#5E7D7E",
+    _GreenishBlue_BG: string | "#307D7E",
+    _AquamarineStone_BG: string | "#348781",
+    _SeaTurtleGreen_BG: string | "#438D80",
+    _DullSeaGreen_BG: string | "#4E8975",
+    _DarkGreenBlue_BG: string | "#1F6357",
+    _DeepSeaGreen_BG: string | "#306754",
+    _BottleGreen_BG: string | "#006A4E",
+    _SeaGreen_BG: string | "#2E8B57",
+    _ElfGreen_BG: string | "#1B8A6B",
+    _DarkMint_BG: string | "#31906E",
+    _Jade_BG: string | "#00A36C",
+    _EarthGreen_BG: string | "#34A56F",
+    _ChromeGreen_BG: string | "#1AA260",
+    _Emerald_BG: string | "#50C878",
+    _Mint_BG: string | "#3EB489",
+    _MediumSeaGreen_BG: string | "#3CB371",
+    _MetallicGreen_BG: string | "#7C9D8E",
+    _CamouflageGreen_BG: string | "#78866B",
+    _SageGreen_BG: string | "#848B79",
+    _HazelGreen_BG: string | "#617C58",
+    _VenomGreen_BG: string | "#728C00",
+    _OliveDrab_BG: string | "#6B8E23",
+    _Olive_BG: string | "#808000",
+    _DarkOliveGreen_BG: string | "#556B2F",
+    _MilitaryGreen_BG: string | "#4E5B31",
+    _GreenLeaves_BG: string | "#3A5F0B",
+    _ArmyGreen_BG: string | "#4B5320",
+    _FernGreen_BG: string | "#667C26",
+    _FallForestGreen_BG: string | "#4E9258",
+    _IrishGreen_BG: string | "#08A04B",
+    _PineGreen_BG: string | "#387C44",
+    _MediumForestGreen_BG: string | "#347235",
+    _JungleGreen_BG: string | "#347C2C",
+    _CactusGreen_BG: string | "#227442",
+    _ForestGreen_BG: string | "#228B22",
+    _Green_BG: string | "#008000",
+    _DarkGreen_BG: string | "#006400",
+    _DeepGreen_BG: string | "#056608",
+    _DeepEmeraldGreen_BG: string | "#046307",
+    _HunterGreen_BG: string | "#355E3B",
+    _DarkForestGreen_BG: string | "#254117",
+    _LotusGreen_BG: string | "#004225",
+    _SeaweedGreen_BG: string | "#437C17",
+    _ShamrockGreen_BG: string | "#347C17",
+    _GreenOnion_BG: string | "#6AA121",
+    _MossGreen_BG: string | "#8A9A5B",
+    _GrassGreen_BG: string | "#3F9B0B",
+    _GreenPepper_BG: string | "#4AA02C",
+    _DarkLimeGreen_BG: string | "#41A317",
+    _ParrotGreen_BG: string | "#12AD2B",
+    _CloverGreen_BG: string | "#3EA055",
+    _DinosaurGreen_BG: string | "#73A16C",
+    _GreenSnake_BG: string | "#6CBB3C",
+    _AlienGreen_BG: string | "#6CC417",
+    _GreenApple_BG: string | "#4CC417",
+    _LimeGreen_BG: string | "#32CD32",
+    _PeaGreen_BG: string | "#52D017",
+    _KellyGreen_BG: string | "#4CC552",
+    _ZombieGreen_BG: string | "#54C571",
+    _GreenPeas_BG: string | "#89C35C",
+    _DollarBillGreen_BG: string | "#85BB65",
+    _FrogGreen_BG: string | "#99C68E",
+    _TurquoiseGreen_BG: string | "#A0D6B4",
+    _DarkSeaGreen_BG: string | "#8FBC8F",
+    _BasilGreen_BG: string | "#829F82",
+    _GrayGreen_BG: string | "#A2AD9C",
+    _IguanaGreen_BG: string | "#9CB071",
+    _CitronGreen_BG: string | "#8FB31D",
+    _AcidGreen_BG: string | "#B0BF1A",
+    _AvocadoGreen_BG: string | "#B2C248",
+    _PistachioGreen_BG: string | "#9DC209",
+    _SaladGreen_BG: string | "#A1C935",
+    _YellowGreen_BG: string | "#9ACD32",
+    _PastelGreen_BG: string | "#77DD77",
+    _HummingbirdGreen_BG: string | "#7FE817",
+    _NebulaGreen_BG: string | "#59E817",
+    _StoplightGoGreen_BG: string | "#57E964",
+    _NeonGreen_BG: string | "#16F529",
+    _JadeGreen_BG: string | "#5EFB6E",
+    _LimeMintGreen_BG: string | "#36F57F",
+    _SpringGreen_BG: string | "#00FF7F",
+    _MediumSpringGreen_BG: string | "#00FA9A",
+    _EmeraldGreen_BG: string | "#5FFB17",
+    _Lime_BG: string | "#00FF00",
+    _LawnGreen_BG: string | "#7CFC00",
+    _BrightGreen_BG: string | "#66FF00",
+    _Chartreuse_BG: string | "#7FFF00",
+    _YellowLawnGreen_BG: string | "#87F717",
+    _AloeVeraGreen_BG: string | "#98F516",
+    _DullGreenYellow_BG: string | "#B1FB17",
+    _LemonGreen_BG: string | "#ADF802",
+    _GreenYellow_BG: string | "#ADFF2F",
+    _ChameleonGreen_BG: string | "#BDF516",
+    _NeonYellowGreen_BG: string | "#DAEE01",
+    _YellowGreenGrosbeak_BG: string | "#E2F516",
+    _TeaGreen_BG: string | "#CCFB5D",
+    _SlimeGreen_BG: string | "#BCE954",
+    _AlgaeGreen_BG: string | "#64E986",
+    _LightGreen_BG: string | "#90EE90",
+    _DragonGreen_BG: string | "#6AFB92",
+    _PaleGreen_BG: string | "#98FB98",
+    _MintGreen_BG: string | "#98FF98",
+    _GreenThumb_BG: string | "#B5EAAA",
+    _OrganicBrown_BG: string | "#E3F9A6",
+    _LightJade_BG: string | "#C3FDB8",
+    _LightMintGreen_BG: string | "#C2E5D3",
+    _LightRoseGreen_BG: string | "#DBF9DB",
+    _ChromeWhite_BG: string | "#E8F1D4",
+    _HoneyDew_BG: string | "#F0FFF0",
+    _MintCream_BG: string | "#F5FFFA",
+    _LemonChiffon_BG: string | "#FFFACD",
+    _Parchment_BG: string | "#FFFFC2",
+    _Cream_BG: string | "#FFFFCC",
+    _CreamWhite_BG: string | "#FFFDD0",
+    _LightGoldenRodYellow_BG: string | "#FAFAD2",
+    _LightYellow_BG: string | "#FFFFE0",
+    _Beige_BG: string | "#F5F5DC",
+    _Cornsilk_BG: string | "#FFF8DC",
+    _Blonde_BG: string | "#FBF6D9",
+    _Champagne_BG: string | "#F7E7CE",
+    _AntiqueWhite_BG: string | "#FAEBD7",
+    _PapayaWhip_BG: string | "#FFEFD5",
+    _BlanchedAlmond_BG: string | "#FFEBCD",
+    _Bisque_BG: string | "#FFE4C4",
+    _Wheat_BG: string | "#F5DEB3",
+    _Moccasin_BG: string | "#FFE4B5",
+    _Peach_BG: string | "#FFE5B4",
+    _LightOrange_BG: string | "#FED8B1",
+    _PeachPuff_BG: string | "#FFDAB9",
+    _CoralPeach_BG: string | "#FBD5AB",
+    _NavajoWhite_BG: string | "#FFDEAD",
+    _GoldenBlonde_BG: string | "#FBE7A1",
+    _GoldenSilk_BG: string | "#F3E3C3",
+    _DarkBlonde_BG: string | "#F0E2B6",
+    _LightGold_BG: string | "#F1E5AC",
+    _Vanilla_BG: string | "#F3E5AB",
+    _TanBrown_BG: string | "#ECE5B6",
+    _DirtyWhite_BG: string | "#E8E4C9",
+    _PaleGoldenRod_BG: string | "#EEE8AA",
+    _Khaki_BG: string | "#F0E68C",
+    _CardboardBrown_BG: string | "#EDDA74",
+    _HarvestGold_BG: string | "#EDE275",
+    _SunYellow_BG: string | "#FFE87C",
+    _CornYellow_BG: string | "#FFF380",
+    _PastelYellow_BG: string | "#FAF884",
+    _NeonYellow_BG: string | "#FFFF33",
+    _Yellow_BG: string | "#FFFF00",
+    _CanaryYellow_BG: string | "#FFEF00",
+    _BananaYellow_BG: string | "#F5E216",
+    _MustardYellow_BG: string | "#FFDB58",
+    _GoldenYellow_BG: string | "#FFDF00",
+    _BoldYellow_BG: string | "#F9DB24",
+    _RubberDuckyYellow_BG: string | "#FFD801",
+    _Gold_BG: string | "#FFD700",
+    _BrightGold_BG: string | "#FDD017",
+    _ChromeGold_BG: string | "#FFCE44",
+    _GoldenBrown_BG: string | "#EAC117",
+    _DeepYellow_BG: string | "#F6BE00",
+    _MacaroniandCheese_BG: string | "#F2BB66",
+    _Saffron_BG: string | "#FBB917",
+    _NeonGold_BG: string | "#FDBD01",
+    _Beer_BG: string | "#FBB117",
+    _YellowOrangeYellow_BG: string | "#FFAE42",
+    _Cantaloupe_BG: string | "#FFA62F",
+    _CheeseOrange_BG: string | "#FFA600",
+    _Orange_BG: string | "#FFA500",
+    _BrownSand_BG: string | "#EE9A4D",
+    _SandyBrown_BG: string | "#F4A460",
+    _BrownSugar_BG: string | "#E2A76F",
+    _CamelBrown_BG: string | "#C19A6B",
+    _DeerBrown_BG: string | "#E6BF83",
+    _BurlyWood_BG: string | "#DEB887",
+    _Tan_BG: string | "#D2B48C",
+    _LightFrenchBeige_BG: string | "#C8AD7F",
+    _Sand_BG: string | "#C2B280",
+    _Sage_BG: string | "#BCB88A",
+    _FallLeafBrown_BG: string | "#C8B560",
+    _GingerBrown_BG: string | "#C9BE62",
+    _BronzeGold_BG: string | "#C9AE5D",
+    _DarkKhaki_BG: string | "#BDB76B",
+    _OliveGreen_BG: string | "#BAB86C",
+    _Brass_BG: string | "#B5A642",
+    _CookieBrown_BG: string | "#C7A317",
+    _MetallicGold_BG: string | "#D4AF37",
+    _BeeYellow_BG: string | "#E9AB17",
+    _SchoolBusYellow_BG: string | "#E8A317",
+    _GoldenRod_BG: string | "#DAA520",
+    _OrangeGold_BG: string | "#D4A017",
+    _Caramel_BG: string | "#C68E17",
+    _DarkGoldenRod_BG: string | "#B8860B",
+    _Cinnamon_BG: string | "#C58917",
+    _Peru_BG: string | "#CD853F",
+    _Bronze_BG: string | "#CD7F32",
+    _TigerOrange_BG: string | "#C88141",
+    _Copper_BG: string | "#B87333",
+    _DarkGold_BG: string | "#AA6C39",
+    _MetallicBronze_BG: string | "#A97142",
+    _DarkAlmond_BG: string | "#AB784E",
+    _Wood_BG: string | "#966F33",
+    _OakBrown_BG: string | "#806517",
+    _AntiqueBronze_BG: string | "#665D1E",
+    _Hazel_BG: string | "#8E7618",
+    _DarkYellow_BG: string | "#8B8000",
+    _DarkMoccasin_BG: string | "#827839",
+    _KhakiGreen_BG: string | "#8A865D",
+    _MillenniumJade_BG: string | "#93917C",
+    _DarkBeige_BG: string | "#9F8C76",
+    _BulletShell_BG: string | "#AF9B60",
+    _ArmyBrown_BG: string | "#827B60",
+    _Sandstone_BG: string | "#786D5F",
+    _Taupe_BG: string | "#483C32",
+    _Mocha_BG: string | "#493D26",
+    _MilkChocolate_BG: string | "#513B1C",
+    _GrayBrown_BG: string | "#3D3635",
+    _DarkCoffee_BG: string | "#3B2F2F",
+    _OldBurgundy_BG: string | "#43302E",
+    _WesternCharcoal_BG: string | "#49413F",
+    _BakersBrown_BG: string | "#5C3317",
+    _DarkBrown_BG: string | "#654321",
+    _SepiaBrown_BG: string | "#704214",
+    _DarkBronze_BG: string | "#804A00",
+    _Coffee_BG: string | "#6F4E37",
+    _BrownBear_BG: string | "#835C3B",
+    _RedDirt_BG: string | "#7F5217",
+    _Sepia_BG: string | "#7F462C",
+    _Sienna_BG: string | "#A0522D",
+    _SaddleBrown_BG: string | "#8B4513",
+    _DarkSienna_BG: string | "#8A4117",
+    _Sangria_BG: string | "#7E3817",
+    _BloodRed_BG: string | "#7E3517",
+    _Chestnut_BG: string | "#954535",
+    _CoralBrown_BG: string | "#9E4638",
+    _ChestnutRed_BG: string | "#C34A2C",
+    _Mahogany_BG: string | "#C04000",
+    _RedGold_BG: string | "#EB5406",
+    _RedFox_BG: string | "#C35817",
+    _DarkBisque_BG: string | "#B86500",
+    _LightBrown_BG: string | "#B5651D",
+    _PetraGold_BG: string | "#B76734",
+    _Rust_BG: string | "#C36241",
+    _CopperRed_BG: string | "#CB6D51",
+    _OrangeSalmon_BG: string | "#C47451",
+    _Chocolate_BG: string | "#D2691E",
+    _Sedona_BG: string | "#CC6600",
+    _PapayaOrange_BG: string | "#E56717",
+    _HalloweenOrange_BG: string | "#E66C2C",
+    _NeonOrange_BG: string | "#FF6700",
+    _BrightOrange_BG: string | "#FF5F1F",
+    _PumpkinOrange_BG: string | "#F87217",
+    _CarrotOrange_BG: string | "#F88017",
+    _DarkOrange_BG: string | "#FF8C00",
+    _ConstructionConeOrange_BG: string | "#F87431",
+    _IndianSaffron_BG: string | "#FF7722",
+    _SunriseOrange_BG: string | "#E67451",
+    _MangoOrange_BG: string | "#FF8040",
+    _Coral_BG: string | "#FF7F50",
+    _BasketBallOrange_BG: string | "#F88158",
+    _LightSalmonRose_BG: string | "#F9966B",
+    _LightSalmon_BG: string | "#FFA07A",
+    _DarkSalmon_BG: string | "#E9967A",
+    _Tangerine_BG: string | "#E78A61",
+    _LightCopper_BG: string | "#DA8A67",
+    _SalmonPink_BG: string | "#FF8674",
+    _Salmon_BG: string | "#FA8072",
+    _PeachPink_BG: string | "#F98B88",
+    _LightCoral_BG: string | "#F08080",
+    _PastelRed_BG: string | "#F67280",
+    _PinkCoral_BG: string | "#E77471",
+    _BeanRed_BG: string | "#F75D59",
+    _ValentineRed_BG: string | "#E55451",
+    _IndianRed_BG: string | "#CD5C5C",
+    _Tomato_BG: string | "#FF6347",
+    _ShockingOrange_BG: string | "#E55B3C",
+    _OrangeRed_BG: string | "#FF4500",
+    _Red_BG: string | "#FF0000",
+    _NeonRed_BG: string | "#FD1C03",
+    _ScarletRed_BG: string | "#FF2400",
+    _RubyRed_BG: string | "#F62217",
+    _FerrariRed_BG: string | "#F70D1A",
+    _FireEngineRed_BG: string | "#F62817",
+    _LavaRed_BG: string | "#E42217",
+    _LoveRed_BG: string | "#E41B17",
+    _Grapefruit_BG: string | "#DC381F",
+    _CherryRed_BG: string | "#C24641",
+    _ChilliPepper_BG: string | "#C11B17",
+    _FireBrick_BG: string | "#B22222",
+    _TomatoSauceRed_BG: string | "#B21807",
+    _Brown_BG: string | "#A52A2A",
+    _CarbonRed_BG: string | "#A70D2A",
+    _Cranberry_BG: string | "#9F000F",
+    _SaffronRed_BG: string | "#931314",
+    _CrimsonRed_BG: string | "#990000",
+    _RedWineRed_BG: string | "#990012",
+    _DarkRed_BG: string | "#8B0000",
+    _Maroon_BG: string | "#800000",
+    _Burgundy_BG: string | "#8C001A",
+    _Vermilion_BG: string | "#7E191B",
+    _DeepRed_BG: string | "#800517",
+    _RedBlood_BG: string | "#660000",
+    _BloodNight_BG: string | "#551606",
+    _DarkScarlet_BG: string | "#560319",
+    _BlackBean_BG: string | "#3D0C02",
+    _ChocolateBrown_BG: string | "#3F000F",
+    _Midnight_BG: string | "#2B1B17",
+    _PurpleLily_BG: string | "#550A35",
+    _PurpleMaroon_BG: string | "#810541",
+    _PlumPie_BG: string | "#7D0541",
+    _PlumVelvet_BG: string | "#7D0552",
+    _DarkRaspberry_BG: string | "#872657",
+    _VelvetMaroon_BG: string | "#7E354D",
+    _RosyFinch_BG: string | "#7F4E52",
+    _DullPurple_BG: string | "#7F525D",
+    _Puce_BG: string | "#7F5A58",
+    _RoseDust_BG: string | "#997070",
+    _PastelBrown_BG: string | "#B1907F",
+    _RosyPink_BG: string | "#B38481",
+    _RosyBrown_BG: string | "#BC8F8F",
+    _KhakiRose_BG: string | "#C5908E",
+    _LipstickPink_BG: string | "#C48793",
+    _PinkBrown_BG: string | "#C48189",
+    _OldRose_BG: string | "#C08081",
+    _DustyPink_BG: string | "#D58A94",
+    _PinkDaisy_BG: string | "#E799A3",
+    _Rose_BG: string | "#E8ADAA",
+    _DustyRose_BG: string | "#C9A9A6",
+    _SilverPink_BG: string | "#C4AEAD",
+    _GoldPink_BG: string | "#E6C7C2",
+    _RoseGold_BG: string | "#ECC5C0",
+    _DeepPeach_BG: string | "#FFCBA4",
+    _PastelOrange_BG: string | "#F8B88B",
+    _DesertSand_BG: string | "#EDC9AF",
+    _UnbleachedSilk_BG: string | "#FFDDCA",
+    _PigPink_BG: string | "#FDD7E4",
+    _PalePink_BG: string | "#F2D4D7",
+    _Blush_BG: string | "#FFE6E8",
+    _MistyRose_BG: string | "#FFE4E1",
+    _PinkBubbleGum_BG: string | "#FFDFDD",
+    _LightRose_BG: string | "#FBCFCD",
+    _LightRed_BG: string | "#FFCCCB",
+    _WarmPink_BG: string | "#F6C6BD",
+    _DeepRose_BG: string | "#FBBBB9",
+    _Pink_BG: string | "#FFC0CB",
+    _LightPink_BG: string | "#FFB6C1",
+    _SoftPink_BG: string | "#FFB8BF",
+    _DonutPink_BG: string | "#FAAFBE",
+    _BabyPink_BG: string | "#FAAFBA",
+    _FlamingoPink_BG: string | "#F9A7B0",
+    _PastelPink_BG: string | "#FEA3AA",
+    _RosePinkRose_BG: string | "#E7A1B0",
+    _CadillacPink_BG: string | "#E38AAE",
+    _CarnationPink_BG: string | "#F778A1",
+    _PastelRose_BG: string | "#E5788F",
+    _BlushRed_BG: string | "#E56E94",
+    _PaleVioletRed_BG: string | "#DB7093",
+    _PurplePink_BG: string | "#D16587",
+    _TulipPink_BG: string | "#C25A7C",
+    _BashfulPink_BG: string | "#C25283",
+    _DarkPink_BG: string | "#E75480",
+    _DarkHotPink_BG: string | "#F660AB",
+    _HotPink_BG: string | "#FF69B4",
+    _WatermelonPink_BG: string | "#FC6C85",
+    _VioletRed_BG: string | "#F6358A",
+    _HotDeepPink_BG: string | "#F52887",
+    _BrightPink_BG: string | "#FF007F",
+    _DeepPink_BG: string | "#FF1493",
+    _NeonPink_BG: string | "#F535AA",
+    _ChromePink_BG: string | "#FF33AA",
+    _NeonHotPink_BG: string | "#FD349C",
+    _PinkCupcake_BG: string | "#E45E9D",
+    _RoyalPink_BG: string | "#E759AC",
+    _DimorphothecaMagenta_BG: string | "#E3319D",
+    _PinkLemonade_BG: string | "#E4287C",
+    _RedPink_BG: string | "#FA2A55",
+    _Raspberry_BG: string | "#E30B5D",
+    _Crimson_BG: string | "#DC143C",
+    _BrightMaroon_BG: string | "#C32148",
+    _RoseRed_BG: string | "#C21E56",
+    _RoguePink_BG: string | "#C12869",
+    _BurntPink_BG: string | "#C12267",
+    _PinkViolet_BG: string | "#CA226B",
+    _MagentaPink_BG: string | "#CC338B",
+    _MediumVioletRed_BG: string | "#C71585",
+    _DarkCarnationPink_BG: string | "#C12283",
+    _RaspberryPurple_BG: string | "#B3446C",
+    _PinkPlum_BG: string | "#B93B8F",
+    _Orchid_BG: string | "#DA70D6",
+    _DeepMauve_BG: string | "#DF73D4",
+    _Violet_BG: string | "#EE82EE",
+    _FuchsiaPink_BG: string | "#FF77FF",
+    _BrightNeonPink_BG: string | "#F433FF",
+    _Fuchsia_BG: string | "#FF00FF",
+    _CrimsonPurple_BG: string | "#E238EC",
+    _HeliotropePurple_BG: string | "#D462FF",
+    _TyrianPurple_BG: string | "#C45AEC",
+    _MediumOrchid_BG: string | "#BA55D3",
+    _PurpleFlower_BG: string | "#A74AC7",
+    _OrchidPurple_BG: string | "#B048B5",
+    _RichLilac_BG: string | "#B666D2",
+    _PastelViolet_BG: string | "#D291BC",
+    _MauveTaupe_BG: string | "#915F6D",
+    _ViolaPurple_BG: string | "#7E587E",
+    _Eggplant_BG: string | "#614051",
+    _PlumPurple_BG: string | "#583759",
+    _Grape_BG: string | "#5E5A80",
+    _PurpleNavy_BG: string | "#4E5180",
+    _SlateBlue_BG: string | "#6A5ACD",
+    _BlueLotus_BG: string | "#6960EC",
+    _Blurple_BG: string | "#5865F2",
+    _LightSlateBlue_BG: string | "#736AFF",
+    _MediumSlateBlue_BG: string | "#7B68EE",
+    _PeriwinklePurple_BG: string | "#7575CF",
+    _VeryPeri_BG: string | "#6667AB",
+    _BrightGrape_BG: string | "#6F2DA8",
+    _PurpleAmethyst_BG: string | "#6C2DC7",
+    _BrightPurple_BG: string | "#6A0DAD",
+    _DeepPeriwinkle_BG: string | "#5453A6",
+    _DarkSlateBlue_BG: string | "#483D8B",
+    _PurpleHaze_BG: string | "#4E387E",
+    _PurpleIris_BG: string | "#571B7E",
+    _DarkPurple_BG: string | "#4B0150",
+    _DeepPurple_BG: string | "#36013F",
+    _MidnightPurple_BG: string | "#2E1A47",
+    _PurpleMonster_BG: string | "#461B7E",
+    _Indigo_BG: string | "#4B0082",
+    _BlueWhale_BG: string | "#342D7E",
+    _RebeccaPurple_BG: string | "#663399",
+    _PurpleJam_BG: string | "#6A287E",
+    _DarkMagenta_BG: string | "#8B008B",
+    _Purple_BG: string | "#800080",
+    _FrenchLilac_BG: string | "#86608E",
+    _DarkOrchid_BG: string | "#9932CC",
+    _DarkViolet_BG: string | "#9400D3",
+    _PurpleViolet_BG: string | "#8D38C9",
+    _JasminePurple_BG: string | "#A23BEC",
+    _PurpleDaffodil_BG: string | "#B041FF",
+    _ClematisViolet_BG: string | "#842DCE",
+    _BlueViolet_BG: string | "#8A2BE2",
+    _PurpleSageBush_BG: string | "#7A5DC7",
+    _LovelyPurple_BG: string | "#7F38EC",
+    _NeonPurple_BG: string | "#9D00FF",
+    _PurplePlum_BG: string | "#8E35EF",
+    _AztechPurple_BG: string | "#893BFF",
+    _MediumPurple_BG: string | "#9370DB",
+    _LightPurple_BG: string | "#8467D7",
+    _CrocusPurple_BG: string | "#9172EC",
+    _PurpleMimosa_BG: string | "#9E7BFF",
+    _Periwinkle_BG: string | "#CCCCFF",
+    _PaleLilac_BG: string | "#DCD0FF",
+    _LavenderPurple_BG: string | "#967BB6",
+    _RosePurple_BG: string | "#B09FCA",
+    _Lilac_BG: string | "#C8A2C8",
+    _Mauve_BG: string | "#E0B0FF",
+    _BrightLilac_BG: string | "#D891EF",
+    _PurpleDragon_BG: string | "#C38EC7",
+    _Plum_BG: string | "#DDA0DD",
+    _BlushPink_BG: string | "#E6A9EC",
+    _PastelPurple_BG: string | "#F2A2E8",
+    _BlossomPink_BG: string | "#F9B7FF",
+    _WisteriaPurple_BG: string | "#C6AEC7",
+    _PurpleThistle_BG: string | "#D2B9D3",
+    _Thistle_BG: string | "#D8BFD8",
+    _PurpleWhite_BG: string | "#DFD3E3",
+    _PeriwinklePink_BG: string | "#E9CFEC",
+    _CottonCandy_BG: string | "#FCDFFF",
+    _LavenderPinocchio_BG: string | "#EBDDE2",
+    _DarkWhite_BG: string | "#E1D9D1",
+    _AshWhite_BG: string | "#E9E4D4",
+    _WhiteChocolate_BG: string | "#EDE6D6",
+    _SoftIvory_BG: string | "#FAF0DD",
+    _OffWhite_BG: string | "#F8F0E3",
+    _PearlWhite_BG: string | "#F8F6F0",
+    _RedWhite_BG: string | "#F3E8EA",
+    _LavenderBlush_BG: string | "#FFF0F5",
+    _Pearl_BG: string | "#FDEEF4",
+    _EggShell_BG: string | "#FFF9E3",
+    _OldLace_BG: string | "#FEF0E3",
+    _Linen_BG: string | "#FAF0E6",
+    _SeaShell_BG: string | "#FFF5EE",
+    _BoneWhite_BG: string | "#F9F6EE",
+    _Rice_BG: string | "#FAF5EF",
+    _FloralWhite_BG: string | "#FFFAF0",
+    _Ivory_BG: string | "#FFFFF0",
+    _WhiteGold_BG: string | "#FFFFF4",
+    _LightWhite_BG: string | "#FFFFF7",
+    _WhiteSmoke_BG: string | "#F5F5F5",
+    _Cotton_BG: string | "#FBFBF9",
+    _Snow_BG: string | "#FFFAFA",
+    _MilkWhite_BG: string | "#FEFCFF",
+    _HalfWhite_BG: string | "#FFFEFA",
+    _White_BG: string | "#FFFFFF",
 }
 
-
-export declare const green: {
-    (text:string): Green_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
+interface String_S {
+   _bold: string,
+	_dim: string,
+	_italic: string,
+	_underline: string,
+	_blinking: string,
+	_overline: string,
+	_inverted: string,
+	_invisible: string,
+	_strikethrough: string,
+	_double_underline: string,
 }
 
-
-export declare const yellow: {
-    (text:string): Yellow_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const blue: {
-    (text:string): Blue_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const purple: {
-    (text:string): Purple_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const cyan: {
-    (text:string): Cyan_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const white: {
-    (text:string): White_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const bg_black: {
-    (text:string): Black_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_black: {
-    (text:string): Light_Black_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_bg_black: {
-    (text:string): Light_Black_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const bg_red: {
-    (text:string): Red_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_red: {
-    (text:string): Light_Red_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_bg_red: {
-    (text:string): Light_Red_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const bg_green: {
-    (text:string): Green_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_green: {
-    (text:string): Light_Green_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_bg_green: {
-    (text:string): Light_Green_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const bg_yellow: {
-    (text:string): Yellow_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_yellow: {
-    (text:string): Light_Yellow_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_bg_yellow: {
-    (text:string): Light_Yellow_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const bg_blue: {
-    (text:string): Light_Blue_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_blue: {
-    (text:string): Light_Blue_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_bg_blue: {
-    (text:string): Light_Blue_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const bg_purple: {
-    (text:string): Purple_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_purple: {
-    (text:string): Light_Purple_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_bg_purple: {
-    (text:string): Light_Purple_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const bg_cyan: {
-    (text:string): Cyan_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_cyan: {
-    (text:string): Light_Cyan_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_bg_cyan: {
-    (text:string): Light_Cyan_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const bg_white: {
-    (text:string): White_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_white: {
-    (text:string): Light_White_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const light_bg_white: {
-    (text:string): Light_White_Background_Text,
-    /** Globally supported */
-    bold: (text:string) => Bold_Text,
-    /** Globally supported */
-    italic: (text:string) => Italic_Text,
-    /** Globally supported */
-    underline: (text:string) => Underlined_Text,
-    /** Globally supported */
-    strikethrough: (text:string) => Crossed_Out_Text,
-    /** Rarely supported */
-    dim: (text:string) => Dimmed_Text,
-    /** Rarely supported (unstable) */
-    overline: (text:string) => Overlined_Text,
-    /** Rarely supported */
-    double_underline: (text:string) => Doubly_Underlined_Text,
-    /** Rarely supported */
-    inverted: (text:string) => Interted_Text,
-    /** Rarely supported */
-    blinking: (text:string) => Blinking_Text,
-    /** Rarely supported (kinda useless) */
-    invisible: (text:string) => Invisible_Text
-}
-
-
-export declare const bold: (text:string) => Bold_Text
-export declare const italic: (text:string) => Italic_Text
-export declare const underline: (text:string) => Underlined_Text
-export declare const strikethrough: (text:string) => Crossed_Out_Text
-export declare const dim: (text:string) => Dimmed_Text
-export declare const overline: (text:string) => Overlined_Text
-export declare const double_underline: (text:string) => Doubly_Underlined_Text
-export declare const inverted: (text:string) => Interted_Text
-export declare const blinking: (text:string) => Blinking_Text
-/** Rarely supported (kinda useless) */
-export declare const invisible: (text:string) => Invisible_Text
+declare interface String extends String_F, String_B, String_S {}

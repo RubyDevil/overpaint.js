@@ -28,7 +28,7 @@ console.log('This text is #yellow.bold[Yellow & Bold].');
 You can use the module's built-in functions as following :
 
 ```js
-const overpaint = require('pastel.js');
+const overpaint = require('overpaint.js');
 
 // color('text')
 console.log(overpaint.yellow('This text is yellow.'));
