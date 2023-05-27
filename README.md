@@ -2,7 +2,7 @@
 # overpaint.js
 
 overpaint.js is a library to facilitate colorful terminal/console outputs for javascript programs.
-overpaint.js supports **657 colors** of the html language. [> See all Colors <](#colors) [> See all Styles<](#styles)
+overpaint.js currently supports **657 colors**. [> See all Colors <](https://github.com/RubyDevil/overpaint.js/blob/main/COLORS.md) or [> See all Styles<](#styles)
 
 ## Usage
 
